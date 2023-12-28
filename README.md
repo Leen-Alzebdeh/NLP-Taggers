@@ -16,6 +16,9 @@ Input data: POS tagged sentences from [The Georgetown University Multilayer Corp
   your PRP$
   ...
   ```
+The training data is under `data/train.txt` <br>
+The in-domain test data is under `data/test.txt` <br>
+The out-of-domain test data is under `data/test_ood.txt` <br>
 The POS tags follow the Penn Treebank (PTB) tagging scheme, described [here](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html)
 ## Tasks
 ### Task 1: Train and Tune the Taggers
@@ -55,6 +58,7 @@ Sukhnoor Khehra @Sukhnoor-K
 
 1. Ensure Python is installed, as well as the Python Standard Library. To download Python if it is not already installed, follow the instructions on the following website: [https://www.python.org/downloads/](https://www.python.org/downloads/).
 
+2. Ensure you have training and test input data in the format outlined above and in a directory 'data/'
 Example usage: use the following commands in the current directory.
 
 For using the HMM tagger on in-domain data:
