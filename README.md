@@ -2,29 +2,30 @@
 compare, and contrast two part-of-speech taggers’ (HMM and Brill) performance on in-domain and out-of-domain text samples.
 
 ## Data
-Input data: sentences with POS tags
-  The input is a tsv (tab-separated values) file like the sample:
-  |id|label|sentence|pos|
-  | -|-----|--------|---|
-  |73|0|Many thanks in advance for your cooperation .| JJ NNS IN NN IN PRP$ NN .| 74| 1| At that moment we saw the bus to come .|IN DT NN PRP VBD DT NN TO VB .|
-  <br>
-The id column is the unique id for each sentence. The label column indicates whether a sentence contains grammar errors (1 means having errors and 0 means error-free). The pos column contains the POS tags for each token in the sentence, also separated by a single space.
+Input data: POS tagged sentences from [The Georgetown University Multilayer Corpus (GUM)](http://corpling.uis.georgetown.edu/gum/)
 
+  The training and test files have a .txt format. Each line has a word and POS tag and each sentence is separated by an empty line.Below is an example of the structure: 
+  ```
+  Always	 RB
+  wear VB
+  ballet NN
+  slippers NNS
+  . .
+  
+  Stretch VB
+  your PRP$
+  ...
+  ```
 The POS tags follow the Penn Treebank (PTB) tagging scheme, described [here](https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html)
 ## Tasks
-### Task 1: Building a toy grammar
-  - We wrote a toy CFG for English in NLTK’s .cfg format.
+### Task 1: Train and Tune the Taggers
+  - We trained the HMM and Brill tagger on the training set and tuned each to find the best performance. 
 
-### Task 2: Constituency parsing
-  - We used the chart parser from NLTK to parse each of the POS sequences in the dataset with the toy grammar we wrote in task 1. We stored results in a TSV file with three columns:
+### Task 2: Compare results
+  - We measured the performance of the taggers on in-domain and out-of-domain test sets.
 
-|Column name|Description|
-| --------- | --------- |
-|id|The id of the input sentence.|ground_truth|The ground truth label of the input sentence, copied from the dataset. |
-|prediction|1 if the sentence has grammar errors, 0 if not. In other words, whether the POS sequence can be parsed successfully with your grammar and parser.|
-
-### Task 3: Evaluation and error analysis
-- We evaluate the performance of our grammar checker by calculating its precision and recall on the data available to us. To do that, we compared the prediction of our system on a given sentence and its corresponding label in the dataset. 
+### Output
+The program’s output file is a .txt file in the same format as the input training file. 
 
 # Report and Results
 Further details and results can be found [here](https://github.com/Leen-Alzebdeh/NLP-Taggers/blob/main/REPORT.md)
